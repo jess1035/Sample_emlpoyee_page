@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Id from './components/Id';
+import ZoomIn from './components/ZoomIn';
+import {Data} from './components/Data';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return(
+  <div className="App">
+
+  <Id
+  name={Data.fname}
+  designation={Data.des}
+  intro={Data.intro}
+
+  />
+  <ZoomIn
+   name={Data.fname}
+   joiningDate={Data.volsince}
+   designation={Data.des}
+   intro={Data.intro}
+  />
+
+  </div>
+     );
 }
 
 export default App;

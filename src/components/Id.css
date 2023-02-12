@@ -1,0 +1,36 @@
+.id{
+    background-color: pink;
+    height: auto;
+    margin: 20px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+ 
+}
+
+.id__image{
+    border-radius: 100%;
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.id__name
+{
+    font-size: 39px;
+}
+.id>div{
+    width: 300px;
+    text-align: center;
+    margin: 6px 0px;
+}
+.id__designation
+{
+    background-color: rgba(255, 90, 117);
+    color: pink;
+    border-radius: 5px;
+}

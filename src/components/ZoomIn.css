@@ -1,0 +1,64 @@
+.zoomIn{
+    height: auto;
+    width: 100vw;
+    margin: 20px;
+    background-color: pink;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.zoomIn__container{
+    
+    display: flex;
+}
+
+.zoomIn__image
+{
+    height: 300px;
+    object-fit: contain;
+}
+
+.zoomIn__info
+{
+    padding: 20px;
+    
+}
+
+.zoomIn__name{
+    font-size: 100px;
+    width: 60vw;
+    
+}
+.zoomIn__designation{
+    margin-bottom: 24px;
+
+}
+.zoomIn__designation>span
+{
+    background-color: #ff5a75;;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    color: white;
+}
+.zoomIn__work
+{
+    margin: 10px 0px;
+    padding: 4px;
+}
+.zoomIn__graphs
+{
+    display: flex;
+    
+    height: 232px;
+    padding: 2px;
+    border-radius: 2px;
+}
+.graph__bar{
+    display: flex;
+
+}
+.graph__bar
+{
+    margin: 0px 200px 0px 0px;
+}
