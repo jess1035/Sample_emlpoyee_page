@@ -20,17 +20,21 @@
 
 .zoomIn__info
 {
-    padding: 20px;
+    padding: 0px 0px 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     
 }
 
 .zoomIn__name{
-    font-size: 100px;
+    font-size: 85px;
     width: 60vw;
     
 }
 .zoomIn__designation{
     margin-bottom: 24px;
+    display: flex;
 
 }
 .zoomIn__designation>span

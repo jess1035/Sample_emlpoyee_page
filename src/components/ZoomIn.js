@@ -1,4 +1,6 @@
 import "./ZoomIn.css";
+import Work from "./Work";
+import Desigantion from "./Designation";
 import { Bar, Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -9,6 +11,7 @@ import {
   PointElement,
 } from "chart.js";
 import { useState } from "react";
+
 ChartJS.register(
   BarElement,
   ArcElement,
@@ -58,13 +61,24 @@ export default function ZoomIn(property) {
         x: {
           grid: {
             display: false,
-            fontColor: "white",
+          },
+          plugins: {
+            tooltip: {
+              enabled: false,
+            },
           },
         },
         y: {
           grid: {
             display: false,
             fontColor: "white",
+          },
+          plugins: {
+            tooltip: {
+              interaction: {
+                intersect: false,
+              },
+            },
           },
         },
       },
@@ -73,11 +87,11 @@ export default function ZoomIn(property) {
 
   const [doughnutData, setDoughnutData] = useState({
     data: {
-      labels: ["Teching", "Devlopment", "Mangement"],
+      labels: ["Red", "Blue", "Yellow"],
       datasets: [
         {
           label: "My First Dataset",
-          data: [500, 50, 100],
+          data: [300, 50, 100],
           backgroundColor: [
             "rgb(255, 99, 132)",
             "rgb(54, 162, 235)",
@@ -86,8 +100,44 @@ export default function ZoomIn(property) {
           hoverOffset: 4,
         },
       ],
-    }});
+    },
+    config: {
+      type: "doughnut",
+      data: {
+        labels: ["Red", "Blue", "Yellow"],
+        datasets: [
+          {
+            label: "My First Dataset",
+            data: [300, 50, 100],
+            backgroundColor: [
+              "rgb(255, 99, 132)",
+              "rgb(54, 162, 235)",
+              "rgb(255, 205, 86)",
+            ],
+            hoverOffset: 4,
+          },
+        ],
+      },
+    },
+  });
 
+  const workArray = property.work.map((data) => {
+
+    return (
+    <Work 
+    dept={data.dept} 
+    info={data.work}
+    />);
+  });
+
+const designationArray= property.designation.map((data)=>{
+    return(
+        <Desigantion
+        designation={data}
+        />
+    )
+})
+  console.log(property.designation);
   return (
     <div className="zoomIn">
       <div className="zoomIn__container">
@@ -102,41 +152,20 @@ export default function ZoomIn(property) {
           <div className="zoomIn__name">{property.name}</div>
 
           <div className="zoomIn__designation">
-            <span>{property.designation}</span>
-            <span>Teaching</span>
+         { designationArray}
           </div>
           <div className="zoomIn__date">
             {" "}
             <b>Date of Joining:</b> {property.joiningDate}
           </div>
-          <div className="zoomIn__about">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore
-            et, sed a expedita optio fugit sit culpa? Numquam ea a non?
-          </div>
+          <div className="zoomIn__about">{property.intro}</div>
         </div>
       </div>
 
       <div className="zoomIn__lower">
         <div className="zoomIn__work">
           <b>Work:</b> <br />
-          <div className="zoomIn__dept">
-            <b>Teaching Department</b>
-          </div>
-          <div className="zoomIn__workInfo">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-            explicabo quos reprehenderit doloremque natus odio hic, accusamus
-            eum ipsa est quae voluptatum exercitationem perferendis porro maxime
-            tempora ipsam fuga!
-          </div>
-          <div className="zoomIn__dept">
-            <b>Teaching Department</b>
-          </div>
-          <div className="zoomIn__workInfo">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-            explicabo quos reprehenderit doloremque natus odio hic, accusamus
-            eum ipsa est quae voluptatum exercitationem perferendis porro maxime
-            tempora ipsam fuga!
-          </div>
+         { workArray}
         </div>
       </div>
       <div className="zoomIn__graphs">
@@ -146,7 +175,7 @@ export default function ZoomIn(property) {
           className="graph__bar"
         />
 
-        <Doughnut data={doughnutData.data}  />
+        <Doughnut data={doughnutData.data} config={doughnutData.config} />
       </div>
     </div>
   );

@@ -1,26 +1,43 @@
 import "./App.css";
-import Id from './components/Id';
-import ZoomIn from './components/ZoomIn';
-import {Data} from './components/Data';
+import Id from "./components/Id";
+import ZoomIn from "./components/ZoomIn";
+import { Data } from "./components/Data";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 function App() {
-  return(
-  <div className="App">
+  const IDs = Data.map((data) => {
+    return (
+      
+        <Id name={data.fname} designation={data.des[0]} intro={data.intro} />
+      
+    );
+  });
 
-  <Id
-  name={Data.fname}
-  designation={Data.des}
-  intro={Data.intro}
+  const ZoomInS = Data.map((data) => {
+    return (
+      <ZoomIn
+        name={data.fname}
+        joiningDate={data.volsince}
+        designation={data.des}
+        intro={data.intro}
+        work={data.Work}
+      />
+    );
+  });
 
-  />
-  <ZoomIn
-   name={Data.fname}
-   joiningDate={Data.volsince}
-   designation={Data.des}
-   intro={Data.intro}
-  />
-
-  </div>
-     );
+  return (
+    <div className="App">
+      <Router>
+        <>
+          <Routes>
+            <Route path="/ZoomIn" element={ZoomInS} />
+            <Route path="/" element={IDs} />
+          </Routes>
+        </>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
