@@ -138,7 +138,9 @@ const designationArray= property.designation.map((data)=>{
     )
 })
   console.log(property.designation);
-  return (
+  return (property.trigger)?(
+    <div className="zoomIn__back" onClick={()=>property.setPopUp(false)}>
+
     <div className="zoomIn">
       <div className="zoomIn__container">
         <img
@@ -168,15 +170,8 @@ const designationArray= property.designation.map((data)=>{
          { workArray}
         </div>
       </div>
-      <div className="zoomIn__graphs">
-        <Bar
-          data={barData.data}
-          options={barData.options}
-          className="graph__bar"
-        />
-
-        <Doughnut data={doughnutData.data} config={doughnutData.config} />
-      </div>
+      
     </div>
-  );
+          </div>
+  ):"";
 }
