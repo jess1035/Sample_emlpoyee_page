@@ -8,12 +8,9 @@
     align-items: center;
     padding: 20px;
     border-radius: 10px;
-    color: white;
+    color: #613b3b;
     
  
-}
-.id:link{
-    text-decoration: none;
 }
 
 .id__image{
@@ -36,5 +33,6 @@
 {
     background-color: rgba(255, 90, 117);
     color: pink;
-    border-radius: 5px;
+    border-radius: 3px;
+    padding: 4px 20px;
 }
